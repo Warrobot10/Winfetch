@@ -13,19 +13,29 @@ gpu_infos = [gpu.name for gpu in computer.Win32_VideoController()]
 
 cpu = cpuinfo.get_cpu_info()['brand_raw']
 
-current_version = "0.2.0"
+current_version = "0.3.0"
 
 time_now = datetime.datetime.now()
 
-formatted_time = time_now.strftime("%d-%m-%Y")
+formatted_date = time_now.strftime("%d-%m-%Y")
+
+formatted_time = time_now.strftime("%I:%M")
 
 day = time_now.strftime("%A")
 
+cprint(colored("[Winfetch status]", "white"))
+
 cprint(colored("Winfetch version ", "white") + colored(current_version, "cyan"))
 
-cprint(colored("Date: ", "white") + colored(formatted_time, "cyan"))
+cprint(colored("[Date and time]", "white"))
+
+cprint(colored("Date: ", "white") + colored(formatted_date, "cyan"))
+
+cprint(colored("Time: ", "white") + colored(formatted_time, "cyan"))
 
 cprint(colored("It is a ", "white") + colored(day, "cyan"))
+
+cprint(colored("[System info]", "white"))
 
 # Iterates over the list of Video cards and prints them neatly
 for i, gpu_info in enumerate(gpu_infos, start=1):
