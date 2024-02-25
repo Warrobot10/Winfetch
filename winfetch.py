@@ -13,7 +13,7 @@ gpu_infos = [gpu.name for gpu in computer.Win32_VideoController()]
 
 cpu = cpuinfo.get_cpu_info()['brand_raw']
 
-current_version = "0.3.0"
+current_version = "0.4.0"
 
 time_now = datetime.datetime.now()
 
@@ -42,6 +42,17 @@ for i, gpu_info in enumerate(gpu_infos, start=1):
     cprint(colored(f"GPU {i}: ", "white") + colored(gpu_info, "cyan"))
 
 cprint(colored("CPU: ", "white") + colored(cpu, "cyan"))
+
+# Get CPU load
+total_processor_time = 0
+total_cores = 0
+
+for cpu in computer.Win32_PerfFormattedData_PerfOS_Processor():
+    total_processor_time += int(cpu.PercentProcessorTime)
+    total_cores += 1
+
+average_cpu_load = total_processor_time / total_cores
+cprint(colored("Average CPU Load: ", "white") + colored(f"{average_cpu_load:.2f}%", "cyan"))
 
 end = time.time()
 
