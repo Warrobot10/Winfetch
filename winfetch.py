@@ -11,9 +11,9 @@ computer = wmi.WMI()
 # Get GPU info
 gpu_infos = [gpu.name for gpu in computer.Win32_VideoController()]
 
-cpu = cpuinfo.get_cpu_info()['brand_raw']
+cpu = cpuinfo.get_cpu_info()["brand_raw"]
 
-current_version = "0.5.0"
+current_version = "0.5.1"
 
 time_now = datetime.datetime.now()
 formatted_date = time_now.strftime("%d-%m-%Y")
@@ -42,4 +42,8 @@ end = time.time()
 
 time_taken = end - start
 time_taken_formatted = "{:.2f}".format(time_taken)
-cprint(colored("Elapsed time: ", "white") + colored(time_taken_formatted, "cyan") + colored("s", "cyan"))
+cprint(
+    colored("Elapsed time: ", "white")
+    + colored(time_taken_formatted, "cyan")
+    + colored("s", "cyan")
+)
