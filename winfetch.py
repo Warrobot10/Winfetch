@@ -8,57 +8,38 @@ start = time.time()
 
 computer = wmi.WMI()
 
-# Iterates over Video cards windows finds and puts them in a list
+# Get GPU info
 gpu_infos = [gpu.name for gpu in computer.Win32_VideoController()]
 
 cpu = cpuinfo.get_cpu_info()['brand_raw']
 
-current_version = "0.4.0"
+current_version = "0.5.0"
 
 time_now = datetime.datetime.now()
-
 formatted_date = time_now.strftime("%d-%m-%Y")
-
 formatted_time = time_now.strftime("%I:%M")
-
 day = time_now.strftime("%A")
 
-cprint(colored("[Winfetch status]", "white"))
-
+# Print Winfetch status
 cprint(colored("Winfetch version ", "white") + colored(current_version, "cyan"))
 
-cprint(colored("[Date and time]", "white"))
-
+# Print Date and time
 cprint(colored("Date: ", "white") + colored(formatted_date, "cyan"))
-
 cprint(colored("Time: ", "white") + colored(formatted_time, "cyan"))
-
 cprint(colored("It is a ", "white") + colored(day, "cyan"))
 
-cprint(colored("[System info]", "white"))
-
-# Iterates over the list of Video cards and prints them neatly
+# Print System info
 for i, gpu_info in enumerate(gpu_infos, start=1):
     cprint(colored(f"GPU {i}: ", "white") + colored(gpu_info, "cyan"))
 
 cprint(colored("CPU: ", "white") + colored(cpu, "cyan"))
 
-# Get CPU load
-total_processor_time = 0
-total_cores = 0
-
-for cpu in computer.Win32_PerfFormattedData_PerfOS_Processor():
-    total_processor_time += int(cpu.PercentProcessorTime)
-    total_cores += 1
-
-average_cpu_load = total_processor_time / total_cores
-cprint(colored("Average CPU Load: ", "white") + colored(f"{average_cpu_load:.2f}%", "cyan"))
+# Get CPU cores
+cpu_cores = sum(int(cpu.NumberOfCores) for cpu in computer.Win32_Processor())
+cprint(colored("CPU cores: ", "white") + colored(cpu_cores, "cyan"))
 
 end = time.time()
 
 time_taken = end - start
-
-# Formats time_taken to display only the first two decimal places
 time_taken_formatted = "{:.2f}".format(time_taken)
-
 cprint(colored("Elapsed time: ", "white") + colored(time_taken_formatted, "cyan") + colored("s", "cyan"))
