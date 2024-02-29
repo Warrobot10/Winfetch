@@ -1,0 +1,10 @@
+{
+    "default": {
+        "header": "white",
+        "value": "cyan"
+    },
+    "white": { 
+        "header": "white",
+        "value": "white"
+    }
+}
