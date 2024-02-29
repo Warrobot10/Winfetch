@@ -1,3 +1,8 @@
+"""
+Winfetch
+This script fetches system information and prints it in a stylized format.
+"""
+
 import json
 import datetime
 import time
@@ -46,8 +51,7 @@ day = time_now.strftime("%A")
 
 # Print Winfetch status
 cprint(
-    colored("Winfetch version ", SELECTED_THEME["header"])
-    + colored(CURRENT_VERSION, SELECTED_THEME["value"])
+    colored(f"Winfetch version {CURRENT_VERSION}", SELECTED_THEME["header"])
 )
 
 # Print Date and time
@@ -88,6 +92,5 @@ time_taken = end - start
 time_taken_formatted = "{:.2f}".format(time_taken)
 cprint(
     colored("Elapsed time: ", SELECTED_THEME["header"])
-    + colored(time_taken_formatted, SELECTED_THEME["value"])
-    + colored("s", SELECTED_THEME["value"])
+    + colored(f"{time_taken_formatted}s", SELECTED_THEME["value"])
 )
