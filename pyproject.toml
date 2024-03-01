@@ -1,0 +1,16 @@
+[project]
+name = "winfetch-py"
+version = "1.0.5"
+authors = [
+  { name="Warrobot10" },
+]
+description = "An original neofetch clone for windows built in python that aims to be as simple as possible."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Homepage = "https://github.com/Warrobot10/winfetch-py"
+Issues = "https://github.com/Warrobot10/winfetch-py"

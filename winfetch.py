@@ -42,7 +42,7 @@ gpu_infos = [gpu.name for gpu in computer.Win32_VideoController()]
 
 cpu = cpuinfo.get_cpu_info()["brand_raw"]
 
-CURRENT_VERSION = "1.0.1"
+CURRENT_VERSION = "1.0.5"
 
 time_now = datetime.datetime.now()
 formatted_date = time_now.strftime("%d-%m-%Y")
