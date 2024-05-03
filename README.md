@@ -11,14 +11,7 @@ A simplistic, yet beautiful system info fetcher that is made for windows that ru
 
 
 # Installation
-Now avaliable through pip!
-1. Install
-    pip install winfetch-py
-
-2. Run
-    py -m winfetch
-
-For development
+For development - a package is being worked on, but is broken for now.
 ## 1. Clone
     git clone https://github.com/Warrobot10/Winfetch.git
 
