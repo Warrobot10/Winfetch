@@ -27,6 +27,9 @@ jobs:
         # The target architecture (x86, x64) of the Python or PyPy interpreter.
         architecture: x64
 
+    - name: Checkout git
+      run: git checkout
+    
     - name: Install python packages
       run: pip install -r requirements.txt
       
