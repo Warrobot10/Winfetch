@@ -4,11 +4,17 @@ This script fetches system information and prints it in a stylized format.
 """
 
 import json
+import os
 import datetime
 import time
 import wmi
 import cpuinfo
+from multiprocessing import freeze_support
 from termcolor import colored, cprint
+from pathlib import Path
+import typer
+
+freeze_support()
 
 
 def load_themes_from_json(file_path):
@@ -26,8 +32,18 @@ def load_themes_from_json(file_path):
 
 
 # Load themes from JSON file
-THEMES_FILE_PATH = "themes.json"  # Update with your themes file path
-THEMES = load_themes_from_json(THEMES_FILE_PATH)
+WINFETCH_DIR = typer.get_app_dir("winfetch-py")
+THEMES_PATH: Path = Path(WINFETCH_DIR) / "themes.json"
+if not THEMES_PATH.is_file():
+    cprint(colored("Themes file not found."), "red")
+    os.makedirs(r"C:\Users\laith\Appdata\roaming\winfetch-py", exist_ok=True)
+    os.system(
+        r"curl https://raw.githubusercontent.com/Warrobot10/winfetch-py/main/themes.json -s -o C:\Users\laith\Appdata\roaming\winfetch-py\themes.json"
+        )
+    cprint(colored("Themes file downloaded. Try running winfetch again."), "green")
+    exit()
+
+THEMES = load_themes_from_json(THEMES_PATH)
 
 # Select a theme
 SELECTED_THEME_NAME = "default"  # Change this to the theme name you want to use
@@ -42,7 +58,7 @@ gpu_infos = [gpu.name for gpu in computer.Win32_VideoController()]
 
 cpu = cpuinfo.get_cpu_info()["brand_raw"]
 
-CURRENT_VERSION = "1.0.5"
+CURRENT_VERSION = "1.1.0"
 
 time_now = datetime.datetime.now()
 formatted_date = time_now.strftime("%d-%m-%Y")

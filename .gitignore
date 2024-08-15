@@ -1,3 +1,5 @@
 build/
 dist/
 winfetch_py.egg-info/
+.venv/
+winfetch.spec
