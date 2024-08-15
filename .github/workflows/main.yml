@@ -18,7 +18,7 @@ jobs:
     steps:
 
     - name: Checkout git
-      run: git checkout
+      run: git checkout https://github.com/Warrobot10/winfetch-py.git
   
     - name: Setup python
       uses: actions/setup-python@v5.1.1
