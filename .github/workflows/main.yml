@@ -17,8 +17,12 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - name: Checkout git
-      run: git checkout https://github.com/Warrobot10/winfetch-py.git
+    - name: Checkout repo    
+      uses: actions/checkout@v4
+      with:
+    # Repository name with owner. For example, actions/checkout
+    # Default: ${{ github.repository }}
+        repository: 'Warrobot10/winfetch-py'
   
     - name: Setup python
       uses: actions/setup-python@v5.1.1
