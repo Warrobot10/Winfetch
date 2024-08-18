@@ -19,9 +19,9 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile={#MyAppName}\LICENSE.txt
+LicenseFile=LICENSE.txt
 PrivilegesRequired=lowest
-OutputDir=installer ; consider using a relative path here
+OutputDir=output
 OutputBaseFilename=winfetch-py-install
 Compression=lzma
 SolidCompression=yes
@@ -31,8 +31,8 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
+; Adjust the path to where your compiled executable is located
 Source: "dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-; Use a relative path for the executable
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
