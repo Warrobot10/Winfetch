@@ -40,9 +40,4 @@ jobs:
     steps:
 
     - name: Run pyinstaller
-      uses: JackMcKew/pyinstaller-action-windows@v0.1.2
-      with:
-        # Directory containing source code (optional requirements.txt).
-        path: D:\a\winfetch-py\winfetch-py\winfetch.py
-        # Specify a file path for .spec file
-        spec: D:\a\winfetch-py\winfetch-py\winfech.spec
+      run: pyinstaller --onefile D:/a/winfetch-py/winfetch-py
