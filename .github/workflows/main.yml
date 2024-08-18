@@ -35,6 +35,9 @@ jobs:
     - name: Run pyinstaller
       run: pyinstaller --onefile ${{ github.workspace }}/winfetch.py
 
+    - name: Create Output Directory
+      run: mkdir -p output
+
     - name: Run innosetup
       uses: Minionguyjpro/Inno-Setup-Action@v1.2.4
       with:
