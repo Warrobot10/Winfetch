@@ -29,10 +29,10 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=D:\winfetch-py\winfetch-py\LICENSE.txt
+LicenseFile=D:\a\winfetch-py\winfetch-py\LICENSE.txt
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
-OutputDir=C:\winfetch-py\winfetch-py\installer
+OutputDir=D:\a\winfetch-py\winfetch-py\installer
 OutputBaseFilename=winfetch-py-install
 Compression=lzma
 SolidCompression=yes
@@ -42,7 +42,7 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\winfetch-py\winfetch-py\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\a\winfetch-py\winfetch-py\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
