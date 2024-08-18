@@ -33,11 +33,6 @@ jobs:
         cache: pip
         # The target architecture (x86, x64) of the Python or PyPy interpreter.
         architecture: x64
-    
-  build-executable:
-    name: build executable
-    runs-on: windows-latest
-    steps:
 
     - name: Run pyinstaller
       run: pyinstaller --onefile D:/a/winfetch-py/winfetch-py
