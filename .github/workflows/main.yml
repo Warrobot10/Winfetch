@@ -34,12 +34,15 @@ jobs:
         # The target architecture (x86, x64) of the Python or PyPy interpreter.
         architecture: x64
     
-    - name: Install python packages
-      run: pip install -r requirements.txt
+  build-executable:
+    name: build executable
+    runs-on: windows-latest
+    steps:
 
-    - name: First time setup
-      run: py winfetch.py
-
-    - name: Run winfetch-py
-      run: py winfetch.py
-      
+    - name: Run pyinstaller
+      uses: JackMcKew/pyinstaller-action-windows@v0.1.2
+      with:
+        # Directory containing source code (optional requirements.txt).
+        path: D:\a\winfetch-py\winfetch-py\winfetch.py
+        # Specify a file path for .spec file
+        spec: D:\a\winfetch-py\winfetch-py\winfech.spec
